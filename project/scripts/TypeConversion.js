@@ -22,7 +22,7 @@ let num = Number(str); // становится числом 123
 alert(typeof num); // number
 
 //  Если строка не может быть явно приведена к числу, то результатом преобразования будет NaN. Например:
-let age = Number("Любая строка вместо числа");
+let age = Number("string, not number");
 alert(age); // NaN, преобразование не удалось
 
 
