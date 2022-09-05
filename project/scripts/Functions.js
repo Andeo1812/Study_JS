@@ -9,12 +9,12 @@ function showMessage() {
 
 
 //  С параметрами
-function showMessage(from, text) { // аргументы: from, text
+function showMessage__(from, text) { // аргументы: from, text
     alert(from + ': ' + text);
 }
 
-showMessage('Anna', 'hello!'); // Anna: hello! (*)
-showMessage('Anna', "How your day?"); // Anna: How your day? (**)
+showMessage__('Anna', 'hello!'); // Anna: hello! (*)
+showMessage__('Anna', "How your day?"); // Anna: How your day? (**)
 
 
 //  Аргументы по умолчанию
@@ -64,3 +64,77 @@ let func = sayHi;    // (2) копируем
 
 func(); //  Hello    // (3) вызываем копию (работает)!
 sayHi(); // Hello    //     эта тоже все ещё работает (почему бы и нет)
+
+
+
+function confirm(question) {
+    return true
+}
+
+//  Функции колбэки
+function ask(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+}
+
+function showOk() {
+    alert( "you agree." );
+}
+
+function showCancel() {
+    alert( "you canceled action." );
+}
+
+//  Использование: функции showOk, showCancel передаются в качестве аргументов ask
+ask("you agree?", showOk, showCancel);
+
+function askShort(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+}
+
+askShort(
+    "Вы согласны?",
+    function() { alert("Вы согласились."); },
+    function() { alert("Вы отменили выполнение."); }
+);
+
+
+//  Function Declaration
+function sum____(a, b) {
+    return a + b;
+}
+
+//  Function Expression
+let _sum = function(a, b) {
+    return a + b;
+};
+
+
+//  Существует ещё один очень простой и лаконичный синтаксис для создания функций,
+//  который часто лучше, чем Function Expression.
+let sum__ = (a, b) => a + b;
+/* Эта стрелочная функция представляет собой более короткую форму:
+
+let sum = function(a, b) {
+  return a + b;
+};
+*/
+alert( sum__(1, 2) ); // 3
+
+//  Еще примеры:
+let double = n => n * 2;
+// примерно тоже что и: let double = function(n) { return n * 2 }
+alert( double(3) ); // 6
+
+//  Если аргументов нет, круглые скобки будут пустыми, но они должны присутствовать:
+let sayHi__ = () => alert("Hello!");
+sayHi__();
+
+//  Многострочное
+let _sum_ = (a, b) => {  // фигурная скобка, открывающая тело многострочной функции
+    let result = a + b;
+    return result; // если мы используем фигурные скобки, то нам нужно явно указать "return"
+};
+
+alert( _sum_(1, 2) ); // 3
