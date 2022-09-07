@@ -1,5 +1,5 @@
 //  Для работы кода в современном режиме
-"use strict"
+'use strict';
 
 //  Инициализация
 let message = "Hello, I'm Oleg"

@@ -1,5 +1,5 @@
 //  Для работы кода в современном режиме
-"use strict"
+'use strict';
 
 
 alert('Hello world! I am learning JS!');
